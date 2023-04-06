@@ -1,8 +1,7 @@
 class UserController < ApplicationController
     def index
         users = User.all
-
-        render json: users
+        render json: users.to_json(include: [:experiences, :strengths])
     end
 
     def show_by_name
