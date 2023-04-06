@@ -17,8 +17,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_06_032338) do
   create_table "experiences", force: :cascade do |t|
     t.string "name"
     t.string "organization"
-    t.string "fromMonth"
-    t.integer "fromYear"
+    t.string "from_month"
+    t.integer "from_year"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
@@ -28,20 +28,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_06_032338) do
   create_table "strengths", force: :cascade do |t|
     t.string "name"
     t.string "proficiency"
-    t.integer "recomendations"
+    t.integer "recommendations"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_strengths_id", null: false
-    t.index ["user_strengths_id"], name: "index_strengths_on_user_strengths_id"
+    t.bigint "strengths_users_id"
+    t.index ["strengths_users_id"], name: "index_strengths_on_strengths_users_id"
   end
 
-  create_table "user_strengths", force: :cascade do |t|
+  create_table "strengths_users", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "strength_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id", null: false
-    t.bigint "strength_id", null: false
-    t.index ["strength_id"], name: "index_user_strengths_on_strength_id"
-    t.index ["user_id"], name: "index_user_strengths_on_user_id"
+    t.index ["strength_id"], name: "index_strengths_users_on_strength_id"
+    t.index ["user_id"], name: "index_strengths_users_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -49,16 +49,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_06_032338) do
     t.string "picture"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "experience_id", null: false
-    t.bigint "user_strengths_id", null: false
+    t.bigint "experience_id"
+    t.bigint "strengths_users_id"
     t.index ["experience_id"], name: "index_users_on_experience_id"
-    t.index ["user_strengths_id"], name: "index_users_on_user_strengths_id"
+    t.index ["strengths_users_id"], name: "index_users_on_strengths_users_id"
   end
 
   add_foreign_key "experiences", "users"
-  add_foreign_key "strengths", "user_strengths", column: "user_strengths_id"
-  add_foreign_key "user_strengths", "strengths"
-  add_foreign_key "user_strengths", "users"
+  add_foreign_key "strengths", "strengths_users", column: "strengths_users_id"
   add_foreign_key "users", "experiences"
-  add_foreign_key "users", "user_strengths", column: "user_strengths_id"
+  add_foreign_key "users", "strengths_users", column: "strengths_users_id"
 end

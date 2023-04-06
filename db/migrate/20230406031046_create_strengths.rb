@@ -3,7 +3,7 @@ class CreateStrengths < ActiveRecord::Migration[7.0]
     create_table :strengths do |t|
       t.string :name
       t.string :proficiency
-      t.integer :recomendations
+      t.integer :recommendations
 
       t.timestamps
     end

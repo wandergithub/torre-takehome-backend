@@ -3,8 +3,8 @@ class CreateExperiences < ActiveRecord::Migration[7.0]
     create_table :experiences do |t|
       t.string :name
       t.string :organization
-      t.string :fromMonth
-      t.integer :fromYear
+      t.string :from_month
+      t.integer :from_year
 
       t.timestamps
     end

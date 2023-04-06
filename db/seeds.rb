@@ -6,21 +6,21 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-# Create some strengths
-s1 = Strength.create(name: "Communication", proficiency: "Expert", recomendations: 10)
-s2 = Strength.create(name: "Leadership", proficiency: "Intermediate", recomendations: 5)
-s3 = Strength.create(name: "Problem-solving", proficiency: "Advanced", recomendations: 7)
+# create some strengths
+strength1 = Strength.create(name: "Communication", proficiency: "Expert", recommendations: 10)
+strength2 = Strength.create(name: "Teamwork", proficiency: "Advanced", recommendations: 7)
+strength3 = Strength.create(name: "Problem Solving", proficiency: "Intermediate", recommendations: 5)
 
-# Create some users
-u1 = User.create(name: "John Doe", picture: "https://example.com/picture1.jpg")
-u2 = User.create(name: "Jane Smith", picture: "https://example.com/picture2.jpg")
+# create some experiences
+exp1 = Experience.create(name: "Software Developer", organization: "Acme Corp", from_month: "January", from_year: 2019)
+exp2 = Experience.create(name: "Product Manager", organization: "Globex Corp", from_month: "June", from_year: 2015)
+exp3 = Experience.create(name: "Marketing Manager", organization: "Soylent Corp", from_month: "August", from_year: 2012)
 
-# Associate users with their strengths
-u1.strengths << s1
-u1.strengths << s2
-u2.strengths << s2
-u2.strengths << s3
+# create some users
+user1 = User.create(name: "John Doe", picture: "https://example.com/john-doe.jpg", experiences: [exp1])
+user2 = User.create(name: "Jane Smith", picture: "https://example.com/jane-smith.jpg", experiences: [exp2])
 
-# Create some experiences
-e1 = Experience.create(name: "Software Engineer", organization: "Acme Inc.", fromMonth: "January", fromYear: 2019, user: u1)
-e2 = Experience.create(name: "Marketing Manager", organization: "Globex Corp.", fromMonth: "June", fromYear: 2015, user: u2)
+# associate some strengths with users
+user1.strengths << strength1
+user1.strengths << strength2
+user2.strengths << strength3
