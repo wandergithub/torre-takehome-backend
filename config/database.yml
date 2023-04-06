@@ -83,6 +83,4 @@ test:
 #
 production:
   <<: *default
-  database: torre_takehome_backend_production
-  username: torre_takehome_backend
-  password: <%= ENV["TORRE_TAKEHOME_BACKEND_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
