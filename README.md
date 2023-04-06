@@ -27,7 +27,7 @@ After you're finished please remove all the comments and instructions!
 
 <div align="center">
   <!-- You are encouraged to replace this logo with your own! Otherwise you can also remove it. -->
-  <img src="murple_logo.png" alt="logo" width="140"  height="auto" />
+  <img src="ERD.jpeg" alt="logo" width="auto"  height="auto" />
   <br/>
 
   <h3><b>Microverse README Template</b></h3>
@@ -94,6 +94,7 @@ After you're finished please remove all the comments and instructions!
 </details>
 
 <!-- Features -->
+<iframe width="100%" height="500px" style="box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); border-radius:15px;" allowtransparency="true" allowfullscreen="true" scrolling="no" title="Embedded DrawSQL IFrame" frameborder="0" src="https://drawsql.app/teams/microverse-76/diagrams/torre/embed"></iframe>
 
 ### Key Features <a name="key-features"></a>
 
